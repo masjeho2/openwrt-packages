@@ -23,8 +23,9 @@ jobs:
           mv openwrt-* openwrt
           
       - name: Adjust location source
-        run: mv -f luci-app-cloudflared openwrt/package/ && ls -a openwrt/package/
-        run: mv -f cloudflared openwrt/package/ && ls -a openwrt/package/
+        run: |
+          mv -f luci-app-cloudflared openwrt/package/ && ls -a openwrt/package/
+          mv -f cloudflared/package/ && ls -a openwrt/package/
       
       - name: Updating feeds && Installing feeds
         run: |
@@ -38,7 +39,7 @@ jobs:
           cd openwrt/
           make defconfig
           make package/luci-app-cloudflared/compile -j${nproc} V=w
-          find bin/ -type f -name '*cloudflared*' -exec mv -t ../packed {} +
+          find bin/ -type f -name '*argon-config*' -exec mv -t ../packed {} +
          
       - name: Upload Package to Releases
         uses: ncipollo/release-action@main
