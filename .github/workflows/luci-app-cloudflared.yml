@@ -37,7 +37,7 @@ jobs:
           cd openwrt/
           make defconfig
           make package/luci-app-cloudflared/compile -j${nproc} V=w
-          find bin/ -type f -name '*argon-config*' -exec mv -t ../packed {} +
+          find bin/ -type f -name '*cloudflared*' -exec mv -t ../packed {} +
          
       - name: Upload Package to Releases
         uses: ncipollo/release-action@main
