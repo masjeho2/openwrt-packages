@@ -24,9 +24,7 @@ jobs:
           
       - name: Adjust location source
         run: |
-          mv -f luci-app-cloudflared openwrt/package/ && ls -a openwrt/package/
-          mv -f cloudflared/package/ && ls -a openwrt/package/
-      
+          mv -f luci-app-cloudflared openwrt/package/ && ls -a openwrt/package/      
       - name: Updating feeds && Installing feeds
         run: |
           cd openwrt/
