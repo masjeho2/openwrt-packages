@@ -1,6 +1,39 @@
+<style>
+    .pppoe-users {
+        font-family: Arial, sans-serif;
+        width: 60%;
+        margin: auto;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    .pppoe-users th, .pppoe-users td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    .pppoe-users th {
+        background-color: #f2f2f2;
+    }
+</style>
+
 <%+ if enable == "1" then %>
 <h2>PPPoE Users:</h2>
-<p>Users: <%+ users %></p>
+<table class="pppoe-users">
+    <tr>
+        <th>User</th>
+        <th>Local IP</th>
+        <th>Remote IP</th>
+    </tr>
+    <%+ for _, user in ipairs(users) do %>
+        <tr>
+            <td><%+ user.name %></td>
+            <td><%+ user.local_ip %></td>
+            <td><%+ user.remote_ip %></td>
+        </tr>
+    <%+ end %>
+</table>
 <%+ else %>
 <p>PPPoE check is disabled. Enable it in the general settings.</p>
 <%+ end %>
