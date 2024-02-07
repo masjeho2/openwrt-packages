@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 
 LUCI_TITLE:=LuCI Tiny File Manager App
 LUCI_PKGARCH:=all
-LUCI_DEPENDS:=+php8 +php8-cgi +php8-mod-session +php8-mod-ctype +php8-mod-fileinfo +php8-mod-zip +php8-mod-iconv +php8-mod-mbstring +zoneinfo-asia 
+LUCI_DEPENDS:=+php7 +php7-cgi +php7-mod-session +php7-mod-ctype +php7-mod-fileinfo +php7-mod-zip +php7-mod-iconv +php7-mod-mbstring +zoneinfo-asia 
 
 PKG_NAME:=luci-app-tinyfm
 PKG_VERSION:=1.2
@@ -63,7 +63,7 @@ define Package/$(PKG_NAME)/postinst
 		logger "  helmilog : restarting some apps..."
 		/etc/init.d/uhttpd restart
 	fi
-#	[ -d /usr/lib/php8 ] && [ ! -d /usr/lib/php ] && ln -sf /usr/lib/php8 /usr/lib/php
+#	[ -d /usr/lib/php7 ] && [ ! -d /usr/lib/php ] && ln -sf /usr/lib/php7 /usr/lib/php
 exit 0
 endef
 
