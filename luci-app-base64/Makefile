@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 
 LUCI_TITLE:=LuCI Base64 App
 LUCI_PKGARCH:=all
-LUCI_DEPENDS:=+php8 +php8-cgi
+LUCI_DEPENDS:=+php7 +php7-cgi
 
 PKG_NAME:=luci-app-base64
 PKG_VERSION:=1.2
